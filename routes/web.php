@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PizzaController@index');
+Route::get('/', 'PizzaController@home');
+Route::get('/main', 'PizzaController@main');
+Route::get('/index', 'PizzaController@index');
 
 Route::get('/about', 'PizzaController@about');
+
+Route::get('/pages/create', 'PizzaController@create');
+// Route::get('/pages/show', 'PizzaController@show');
+Route::post('/pizzas', 'PizzaController@store');
+Route::get('/pages/show/{id}', 'PizzaController@show');
