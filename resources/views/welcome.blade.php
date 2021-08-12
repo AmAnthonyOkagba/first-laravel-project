@@ -12,6 +12,7 @@
                         </g>
                     </svg>
                 </div>
+                <p style="color: white"> {{ session('mssg') }} </p>
             </div>
         </div>
     </body>
