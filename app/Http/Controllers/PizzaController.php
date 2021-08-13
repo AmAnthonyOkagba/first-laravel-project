@@ -7,35 +7,27 @@ use App\Models\Pizza;
 
 class PizzaController extends Controller
 {
-    public function home(){
-        return view(('welcome'));
-    }
-    public function main(){
-        return view(('pages.index'));
-    }
     public function index(){
-        return view(('index'));
-    }
-
-    public function about(){
-        return view('pages.about');
-    }
-
-    public function create(){
-        return view('pages.create');
-    }
-
-    public function show($id){
 
         // $pizza = Pizza::all();
         // $pizza = Pizza::orderby('name')->get();
         // $pizza = Pizza::where('type', 'food')->get();
-        // $pizza = Pizza::latest()->get();
+        $pizza = Pizza::latest()->get();
+
+        return view('pizzas.index', ['pizzas' => $pizza]);
+    }
+
+    public function show($id){
 
         $pizza = Pizza::findorfail($id);
 
-        // return view('pages.show', ['id' => $id]);
-        return view('pages.show', ['pizzas' => $pizza]);
+        // return view('pizzas.show', ['id' => $id]);
+
+        return view('pizzas.show', ['pizza' => $pizza]);
+    }
+
+    public function create(){
+        return view('pizzas.create');
     }
 
     public function store(){
@@ -52,4 +44,11 @@ class PizzaController extends Controller
         return redirect('/')->with('mssg', 'Thanks for you order');
     }
 
+    public function destroy($id){
+
+        $pizza = Pizza::findorfail($id);
+        $pizza->delete();
+
+        return view('/pizzas');
+    }
 }

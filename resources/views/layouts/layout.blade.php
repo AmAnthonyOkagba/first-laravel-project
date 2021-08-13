@@ -4,14 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Pizzas House</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
 
         <style>
             body {
@@ -20,11 +19,11 @@
         </style>
     </head>
     <body class="antialiased">
-        @include('layouts.inc.navbar')
         @yield('content')
 
-        <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/jquery-3.6.0.min.js"></script>
+        <footer>
+            Copyright 2021 Pizza House
+        </footer>
 
     </body>
 </html>

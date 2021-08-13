@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PizzaController@home');
-Route::get('/main', 'PizzaController@main');
-Route::get('/index', 'PizzaController@index');
+Route::get('/', function() {
+    return view('welcome');
+});
 
-Route::get('/about', 'PizzaController@about');
-
-Route::get('/pages/create', 'PizzaController@create');
-// Route::get('/pages/show', 'PizzaController@show');
+Route::get('/pizzas', 'PizzaController@index');
+Route::get('/pizzas/create', 'PizzaController@create');
 Route::post('/pizzas', 'PizzaController@store');
-Route::get('/pages/show/{id}', 'PizzaController@show');
+Route::delete('/pizzas/{id}', 'PizzaController@destroy');
+Route::get('/pizzas/{id}', 'PizzaController@show');
