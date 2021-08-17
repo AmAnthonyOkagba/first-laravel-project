@@ -7,6 +7,11 @@ use App\Models\Pizza;
 
 class PizzaController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
     public function index(){
 
         // $pizza = Pizza::all();
@@ -47,8 +52,8 @@ class PizzaController extends Controller
     public function destroy($id){
 
         $pizza = Pizza::findorfail($id);
-        $pizza->delete();
+        $pizza->delete($id);
 
-        return view('/pizzas');
+        return view('pizzas');
     }
 }

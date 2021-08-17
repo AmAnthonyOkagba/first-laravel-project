@@ -10,7 +10,7 @@
                     The North's Best Pizzas
                 </div><br>
                 <p class="mssg"> {{ session('mssg') }} </p>
-                <a href="/pizzas/create">Order a Pizzas</a>
+                <a href="{{ route('pizzas.create') }}">Order a Pizzas</a>
             </div>
         </div>
     </body>
